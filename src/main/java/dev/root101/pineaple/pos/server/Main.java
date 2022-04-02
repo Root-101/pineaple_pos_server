@@ -1,15 +1,19 @@
 package dev.root101.pineaple.pos.server;
 
+import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePOSRESTModule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {
+    A_PineaplePOSRESTModule.BASE_PACKAGE,})
 @RestController
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/main")
 public class Main extends SpringBootServletInitializer {
 
     private static ConfigurableApplicationContext context;
@@ -23,8 +27,8 @@ public class Main extends SpringBootServletInitializer {
         return builder.sources(Main.class);
     }
 
-    @GetMapping("/hi")
-    public String hello() {
-        return "Hello World!!! From the server side";
+    @GetMapping("/nene")
+    public String nene() {
+        return "TE AMOOOOOOOO";
     }
 }
