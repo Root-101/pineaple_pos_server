@@ -6,12 +6,12 @@ package dev.root101.pineaple.pos.server.core.e_repo_def;
 
 import dev.root101.clean.core.repo.CRUDRepository;
 
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePOSDomains.*;
+import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 
 /**
  *
  * @author Yo
  */
-public interface PineaplePOSAreaRepo extends CRUDRepository<PineaplePOSAreaDomain> {
+public interface PineaplePosAreaRepo extends CRUDRepository<PineaplePOSAreaDomain> {
 
 }

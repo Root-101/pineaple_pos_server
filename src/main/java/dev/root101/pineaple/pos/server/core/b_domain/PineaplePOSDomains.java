@@ -12,15 +12,15 @@ import javax.validation.constraints.Size;
  *
  * @author Yo
  */
-public class PineaplePOSDomains {
+public class PineaplePosDomains {
 
     public record PineaplePOSAreaDomain(
-            Integer idPosArea,
-            @NotEmpty(message = "No puede estar vacio")
+            Integer idArea,
+            @NotEmpty(message = "Nombre del área no puede estar vacio")
             @Size(max = 99, message = "Nombre muy largo")
-            String namePosArea,
+            String nameArea,
             @Size(min = 0, max = 499, message = "Descripcion muy larga")
-            String descriptionPosArea) implements BasicDomainObject {
+            String descriptionArea) implements BasicDomainObject {
 
         public static PineaplePOSAreaDomain build(int idPosArea, String namePosArea, String descriptionPosArea) {
             return new PineaplePOSAreaDomain(idPosArea, namePosArea, descriptionPosArea);
@@ -29,6 +29,11 @@ public class PineaplePOSDomains {
         public static PineaplePOSAreaDomain build(String namePosArea, String descriptionPosArea) {
             return new PineaplePOSAreaDomain(0, namePosArea, descriptionPosArea);
         }
+
+        public static PineaplePOSAreaDomain copyWith() {
+            return null;
+        }
+
     }
 
 }

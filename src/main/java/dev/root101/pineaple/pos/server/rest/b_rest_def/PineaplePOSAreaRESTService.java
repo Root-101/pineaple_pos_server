@@ -6,12 +6,12 @@
 package dev.root101.pineaple.pos.server.rest.b_rest_def;
 
 import dev.root101.clean.core.rest.CRUDRestService;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePOSDomains.*;
+import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  */
-public interface PineaplePOSAreaRESTService extends CRUDRestService<PineaplePOSAreaDomain> {
+public interface PineaplePosAreaRESTService extends CRUDRestService<PineaplePOSAreaDomain> {
 
 }

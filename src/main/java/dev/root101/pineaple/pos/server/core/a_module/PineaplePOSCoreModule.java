@@ -13,24 +13,24 @@ import dev.root101.clean.core.exceptions.*;
  *
  * @author Yo
  */
-public class PineaplePOSCoreModule extends DefaultAbstractModule {
+public class PineaplePosCoreModule extends DefaultAbstractModule {
 
-    private static final Injector inj = Guice.createInjector(new PineaplePOSGuiceInjectorConfig());
+    private static final Injector inj = Guice.createInjector(new PineaplePosGuiceInjectorConfig());
     
-    private static PineaplePOSCoreModule INSTANCE;
+    private static PineaplePosCoreModule INSTANCE;
 
-    public static PineaplePOSCoreModule getInstance() {
+    public static PineaplePosCoreModule getInstance() {
         if (INSTANCE == null) {
             throw new NotInitModule("Modulo sin iniciar");
         }
         return INSTANCE;
     }
 
-    public static PineaplePOSCoreModule init(/*AbstractModule repoModule*/) {
+    public static PineaplePosCoreModule init(/*AbstractModule repoModule*/) {
         if (INSTANCE != null) {
             throw new AlreadyInitModule("Module ya inicializado");
         }
-        INSTANCE = new PineaplePOSCoreModule();
+        INSTANCE = new PineaplePosCoreModule();
         //INSTANCE.registerModule(repoModule);
         return getInstance();
     }

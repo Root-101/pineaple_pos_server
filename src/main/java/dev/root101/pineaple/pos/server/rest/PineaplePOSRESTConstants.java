@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePOSRESTConstants {
+public class PineaplePosRESTConstants {
 
     //-----------------------AREA-----------------------\\
     public static final String AREA_GENERAL_PATH = "/area";

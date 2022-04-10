@@ -5,12 +5,12 @@
 package dev.root101.pineaple.pos.server.core.c_usecase_def;
 
 import dev.root101.clean.core.app.usecase.CRUDUseCase;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePOSDomains.*;
+import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 
 /**
  *
  * @author Yo
  */
-public interface PineaplePOSAreaUC extends CRUDUseCase<PineaplePOSAreaDomain> {
+public interface PineaplePosAreaUC extends CRUDUseCase<PineaplePOSAreaDomain> {
 
 }

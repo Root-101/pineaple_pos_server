@@ -1,6 +1,6 @@
 package dev.root101.pineaple.pos.server;
 
-import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePOSRESTModule;
+import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePosRESTModule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-    A_PineaplePOSRESTModule.BASE_PACKAGE,})
+    A_PineaplePosRESTModule.BASE_PACKAGE,})
 @RestController
-@RequestMapping(value = "/main")
+@RequestMapping(value = "/pos")
 public class Main extends SpringBootServletInitializer {
 
     private static ConfigurableApplicationContext context;

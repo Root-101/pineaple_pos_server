@@ -16,10 +16,10 @@
  */
 package dev.root101.pineaple.pos.server.rest.c_rest_impl;
 
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePOSDomains.*;
+import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 import dev.root101.pineaple.pos.server.core.c_usecase_def.*;
-import static dev.root101.pineaple.pos.server.rest.PineaplePOSRESTConstants.*;
-import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePOSRESTModule;
+import static dev.root101.pineaple.pos.server.rest.PineaplePosRESTConstants.*;
+import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePosRESTModule;
 import dev.root101.pineaple.pos.server.rest.b_rest_def.*;
 import dev.root101.spring.server.CRUDRestServiceTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +31,37 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = AREA_GENERAL_PATH)
-public class PineaplePOSArestRESTServiceImpl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePOSAreaUC> implements PineaplePOSAreaRESTService {
+public class PineaplePosArestRESTServiceImpl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePosAreaUC> implements PineaplePosAreaRESTService {
 
-    public PineaplePOSArestRESTServiceImpl() {
-        super(A_PineaplePOSRESTModule.areaUC);
+    public PineaplePosArestRESTServiceImpl() {
+        super(A_PineaplePosRESTModule.areaUC);
     }
 
+    @GetMapping("/one")
+    public PineaplePOSAreaDomain one() throws RuntimeException {
+        return PineaplePOSAreaDomain.build("helouuuuu", "prueba de uno solo");
+    }
+
+    @PostMapping("/dos")
+    public PineaplePOSAreaDomain two() throws RuntimeException {
+        return PineaplePOSAreaDomain.build(9999, "dos", "descr dos");
+    }
+
+    @PostMapping("/tres")
+    public String tres(@RequestBody String string) throws RuntimeException {
+        System.out.println(string);
+        return string + "okokok";
+    }
+
+    @PostMapping("/cuatro")
+    public String cuatro(@RequestBody PineaplePOSAreaDomain areaDomain) throws RuntimeException {
+        System.out.println(areaDomain);
+        return areaDomain.toString();
+    }
+
+    @PostMapping("/cinco")
+    public PineaplePOSAreaDomain cinco(@RequestBody PineaplePOSAreaDomain areaDomain) throws RuntimeException {
+        System.out.println(areaDomain);
+        return PineaplePOSAreaDomain.build(9999, areaDomain.namePosArea() + " oki doik", areaDomain.descriptionPosArea());
+    }
 }
