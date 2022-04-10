@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dev.root101.pineaple.pos.server.core.a_module;
+package dev.root101.pineaple.pos.server.repo.a_module;
 
 import com.google.inject.*;
 import dev.root101.clean.core.app.modules.DefaultAbstractModule;
@@ -12,25 +12,24 @@ import dev.root101.clean.core.exceptions.*;
  *
  * @author Yo
  */
-public class PineaplePosCoreModule extends DefaultAbstractModule {
+public class PineaplePosRepoModule extends DefaultAbstractModule {
 
-    private static final Injector inj = Guice.createInjector(new PineaplePosCoreGuiceInjectorConfig());
+    private static final Injector inj = Guice.createInjector(new PineaplePosRepoGuiceInjectorConfig());
 
-    private static PineaplePosCoreModule INSTANCE;
+    private static PineaplePosRepoModule INSTANCE;
 
-    public static PineaplePosCoreModule getInstance() {
+    public static PineaplePosRepoModule getInstance() {
         if (INSTANCE == null) {
             throw new NotInitModule("Modulo sin iniciar");
         }
         return INSTANCE;
     }
 
-    public static PineaplePosCoreModule init(dev.root101.clean.core.app.modules.AbstractModule repoModule) {
+    public static PineaplePosRepoModule init() {
         if (INSTANCE != null) {
             throw new AlreadyInitModule("Module ya inicializado");
         }
-        INSTANCE = new PineaplePosCoreModule();
-        INSTANCE.registerModule(repoModule);
+        INSTANCE = new PineaplePosRepoModule();
         return getInstance();
     }
 
@@ -41,7 +40,7 @@ public class PineaplePosCoreModule extends DefaultAbstractModule {
 
     @Override
     public String getModuleName() {
-        return "Pineaple POS Core Module";
+        return "Pineaple POS Repo Module";
     }
 
 }

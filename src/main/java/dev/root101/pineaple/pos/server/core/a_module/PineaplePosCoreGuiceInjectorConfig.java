@@ -13,7 +13,7 @@ import dev.root101.pineaple.pos.server.core.c_usecase_def.PineaplePosAreaUC;
  *
  * @author Yo
  */
-public class PineaplePosGuiceInjectorConfig extends AbstractModule {
+public class PineaplePosCoreGuiceInjectorConfig extends AbstractModule {
 
     @Override
     protected void configure() {

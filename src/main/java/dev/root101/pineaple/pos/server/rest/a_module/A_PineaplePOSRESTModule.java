@@ -19,6 +19,9 @@ package dev.root101.pineaple.pos.server.rest.a_module;
 import dev.root101.pineaple.pos.server.core.a_module.*;
 import org.springframework.stereotype.Component;
 import dev.root101.pineaple.pos.server.core.c_usecase_def.PineaplePosAreaUC;
+import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
+import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.RepoSpring;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -29,12 +32,13 @@ import dev.root101.pineaple.pos.server.core.c_usecase_def.PineaplePosAreaUC;
 public class A_PineaplePosRESTModule {
 
     public static final String BASE_PACKAGE = "dev.root101.pineaple.pos.server";
+    
 
-    public final static PineaplePosAreaUC areaUC;
+    public final static PineaplePosAreaUC areaUC = null;
 
     static {
-        PineaplePosCoreModule.init();
+        //PineaplePosCoreModule.init(PineaplePosRepoModule.init());
 
-        areaUC = PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class);
+        //areaUC = PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class);
     }
 }

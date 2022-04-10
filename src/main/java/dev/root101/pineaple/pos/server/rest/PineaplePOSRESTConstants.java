@@ -30,5 +30,4 @@ public class PineaplePosRESTConstants {
 
     //public static final String MONEDA_FIND_BASE_PATH = "/find_base";
     //public static final RequestMethod MONEDA_FIND_BASE_METHOD = RequestMethod.GET;
-
 }

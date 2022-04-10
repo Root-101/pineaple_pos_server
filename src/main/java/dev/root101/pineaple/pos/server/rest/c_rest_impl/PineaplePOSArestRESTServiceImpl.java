@@ -18,10 +18,15 @@ package dev.root101.pineaple.pos.server.rest.c_rest_impl;
 
 import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 import dev.root101.pineaple.pos.server.core.c_usecase_def.*;
+import dev.root101.pineaple.pos.server.repo.c_repo_impl.converters.PineaplePosAreaConverter;
+import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.RepoSpring;
 import static dev.root101.pineaple.pos.server.rest.PineaplePosRESTConstants.*;
 import dev.root101.pineaple.pos.server.rest.a_module.A_PineaplePosRESTModule;
 import dev.root101.pineaple.pos.server.rest.b_rest_def.*;
 import dev.root101.spring.server.CRUDRestServiceTemplate;
+import dev.root101.spring.server.RESTUrlConstants;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -35,6 +40,15 @@ public class PineaplePosArestRESTServiceImpl extends CRUDRestServiceTemplate<Pin
 
     public PineaplePosArestRESTServiceImpl() {
         super(A_PineaplePosRESTModule.areaUC);
+    }
+
+    @Autowired
+    public static RepoSpring repo;
+
+    @Override
+    @GetMapping(RESTUrlConstants.FIND_ALL_PATH)
+    public List<PineaplePOSAreaDomain> findAll() throws RuntimeException {
+        return PineaplePosAreaConverter.getInstance().toDomainAll(repo.findAll());
     }
 
     @GetMapping("/one")
@@ -62,6 +76,6 @@ public class PineaplePosArestRESTServiceImpl extends CRUDRestServiceTemplate<Pin
     @PostMapping("/cinco")
     public PineaplePOSAreaDomain cinco(@RequestBody PineaplePOSAreaDomain areaDomain) throws RuntimeException {
         System.out.println(areaDomain);
-        return PineaplePOSAreaDomain.build(9999, areaDomain.namePosArea() + " oki doik", areaDomain.descriptionPosArea());
+        return PineaplePOSAreaDomain.build(9999, areaDomain.nameArea() + " oki doik", areaDomain.descriptionArea());
     }
 }

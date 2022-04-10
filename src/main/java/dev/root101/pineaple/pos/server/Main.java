@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {
-    A_PineaplePosRESTModule.BASE_PACKAGE,})
+/*@ComponentScan(basePackages = {
+    A_PineaplePosRESTModule.BASE_PACKAGE,})*/
 @RestController
 @RequestMapping(value = "/pos")
 public class Main extends SpringBootServletInitializer {

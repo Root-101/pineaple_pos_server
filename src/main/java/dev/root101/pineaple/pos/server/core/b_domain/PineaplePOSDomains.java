@@ -16,7 +16,7 @@ public class PineaplePosDomains {
 
     public record PineaplePOSAreaDomain(
             Integer idArea,
-            @NotEmpty(message = "Nombre del área no puede estar vacio")
+            @NotEmpty(message = "Nombre del area no puede estar vacio")
             @Size(max = 99, message = "Nombre muy largo")
             String nameArea,
             @Size(min = 0, max = 499, message = "Descripcion muy larga")

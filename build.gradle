@@ -24,13 +24,12 @@ dependencies {
     //spring y sus dependencias
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.5'
     //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:2.6.5'
-
     
     //DB
     //spring db, para el JPA Repo y sus dependencias
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.5'
     //conector a la BD, la usa spring por detras
-    //implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation 'mysql:mysql-connector-java:8.0.28'
     //para las anotaciones de las entidades
     implementation 'javax.persistence:javax.persistence-api:2.2'
     
@@ -41,4 +40,10 @@ dependencies {
 
     //injection
     implementation 'com.google.inject:guice:5.0.1'
+
+    //OpenApi docs
+    //ref at:
+    //https://www.baeldung.com/spring-rest-openapi-documentation
+    //https://springdoc.org/#Introduction
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
 }
