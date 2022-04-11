@@ -16,15 +16,15 @@
  */
 package dev.root101.pineaple.pos.server.rest.a_module;
 
-import dev.root101.pineaple.pos.server.core.a_module.*;
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Bean;
 import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule;
 import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
 import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExternalModule;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -38,7 +38,6 @@ public class PineaplePosRESTModule {
 
     //@PersistenceContext
     //private EntityManager entityManager;
-
     @Bean("PineaplePosRESTModule")
     public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
         PineaplePosCoreModule.init(
