@@ -18,10 +18,11 @@ package dev.root101.pineaple.pos.server.rest.a_module;
 
 import dev.root101.pineaple.pos.server.core.a_module.*;
 import org.springframework.stereotype.Component;
-import dev.root101.pineaple.pos.server.core.c_usecase_def.PineaplePosAreaUC;
-import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
-import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.RepoSpring;
+import org.springframework.context.annotation.Bean;
+import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
+import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.PineaplePosAreaRepoExternal_Impl;
 
 /**
  *
@@ -29,16 +30,18 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author JesusHdezWaterloo@Github
  */
 @Component
-public class A_PineaplePosRESTModule {
+public class PineaplePosRESTModule {
 
     public static final String BASE_PACKAGE = "dev.root101.pineaple.pos.server";
-    
 
-    public final static PineaplePosAreaUC areaUC = null;
-
-    static {
-        //PineaplePosCoreModule.init(PineaplePosRepoModule.init());
-
-        //areaUC = PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class);
+    @Bean("PineaplePosRESTModule")
+    public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
+        PineaplePosCoreModule.init(
+                PineaplePosRepoModule.init(
+                        new PineaplePosAreaRepoExternal_Impl(areaRepoExternal)
+                )
+        );
+        return "PineaplePosRESTModule";
     }
+
 }

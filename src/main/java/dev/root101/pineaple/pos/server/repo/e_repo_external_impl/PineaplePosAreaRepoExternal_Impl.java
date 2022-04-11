@@ -14,7 +14,11 @@ import java.util.List;
  */
 public class PineaplePosAreaRepoExternal_Impl implements PineaplePosAreaRepoExternal {
 
-    private RepoSpring repo;
+    private PineaplePosAreaJPARepo repo;
+
+    public PineaplePosAreaRepoExternal_Impl(PineaplePosAreaJPARepo repo) {
+        this.repo = repo;
+    }
 
     @Override
     public Area create(Area newObject) throws RuntimeException {

@@ -7,6 +7,7 @@ package dev.root101.pineaple.pos.server.repo.a_module;
 import com.google.inject.*;
 import dev.root101.clean.core.app.modules.DefaultAbstractModule;
 import dev.root101.clean.core.exceptions.*;
+import dev.root101.pineaple.pos.server.repo.d_repo_external.PineaplePosAreaRepoExternal;
 
 /**
  *
@@ -14,7 +15,7 @@ import dev.root101.clean.core.exceptions.*;
  */
 public class PineaplePosRepoModule extends DefaultAbstractModule {
 
-    private static final Injector inj = Guice.createInjector(new PineaplePosRepoGuiceInjectorConfig());
+    private static Injector inj;
 
     private static PineaplePosRepoModule INSTANCE;
 
@@ -25,10 +26,15 @@ public class PineaplePosRepoModule extends DefaultAbstractModule {
         return INSTANCE;
     }
 
-    public static PineaplePosRepoModule init() {
+    public static PineaplePosRepoModule init(PineaplePosAreaRepoExternal areaRepoExternal) {
         if (INSTANCE != null) {
             throw new AlreadyInitModule("Module ya inicializado");
         }
+        inj = Guice.createInjector(
+                new PineaplePosRepoGuiceInjectorConfig(
+                        areaRepoExternal
+                )
+        );
         INSTANCE = new PineaplePosRepoModule();
         return getInstance();
     }

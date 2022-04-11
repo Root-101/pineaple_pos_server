@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/main")
 public class Main extends SpringBootServletInitializer {
-
-    @Autowired
-    REPO repo;
     
     private static ConfigurableApplicationContext context;
 
@@ -28,12 +25,6 @@ public class Main extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(Main.class);
-    }
-
-    @GetMapping("/all")
-    public @ResponseBody
-    Iterable<Area> getAllUsers() {
-        return repo.findAll();
     }
 
 }
