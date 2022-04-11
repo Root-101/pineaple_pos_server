@@ -1,5 +1,7 @@
 package dev.root101.pineaple.pos.server;
 
+import dev.root101.pineaple.pos.server.repo.b_entity.Area;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -8,10 +10,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
+/*@ComponentScan(basePackages = {
+    A_PineaplePosRESTModule.BASE_PACKAGE,})*/
 @RestController
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/main")
 public class Main extends SpringBootServletInitializer {
-
+    
     private static ConfigurableApplicationContext context;
 
     public static void main(String[] args) {
@@ -23,8 +27,4 @@ public class Main extends SpringBootServletInitializer {
         return builder.sources(Main.class);
     }
 
-    @GetMapping("/hi")
-    public String hello() {
-        return "Hello World!!! From the server side";
-    }
 }
