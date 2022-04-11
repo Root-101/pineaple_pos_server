@@ -18,49 +18,17 @@ package dev.root101.pineaple.pos.server.repo.e_repo_external_impl;
 
 import dev.root101.pineaple.pos.server.repo.b_entity.Area;
 import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
-import java.util.List;
+import dev.root101.spring.repo.DefaultJPARepository;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaRepoExternalImpl implements PineaplePosAreaRepoExternal {
-
-    private final PineaplePosAreaJPARepo repo;
+public class PineaplePosAreaRepoExternalImpl extends DefaultJPARepository<Area, Integer> implements PineaplePosAreaRepoExternal {
 
     public PineaplePosAreaRepoExternalImpl(PineaplePosAreaJPARepo repo) {
-        this.repo = repo;
-    }
-
-    @Override
-    public Area create(Area newObject) throws RuntimeException {
-        return repo.save(newObject);
-    }
-
-    @Override
-    public Area edit(Area objectToEdit) throws RuntimeException {
-        return repo.save(objectToEdit);
-    }
-
-    @Override
-    public void destroy(Area objectToDestroy) throws RuntimeException {
-        repo.delete(objectToDestroy);
-    }
-
-    @Override
-    public void destroyById(Integer keyId) throws RuntimeException {
-        repo.deleteById(keyId);
-    }
-
-    @Override
-    public Area findBy(Integer keyId) throws RuntimeException {
-        return repo.findById(keyId).get();
-    }
-
-    @Override
-    public List<Area> findAll() throws RuntimeException {
-        return repo.findAll();
+        super(repo);
     }
 
 }
