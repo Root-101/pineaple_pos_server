@@ -16,18 +16,11 @@ import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.*;
  */
 public class PineaplePosRepoGuiceInjectorConfig extends AbstractModule {
 
-    private final PineaplePosAreaRepoExternal areaRepoExternal;
-
-    public PineaplePosRepoGuiceInjectorConfig(PineaplePosAreaRepoExternal pineaplePosAreaRepoExternal) {
-        this.areaRepoExternal = pineaplePosAreaRepoExternal;
-    }
-
     @Override
     protected void configure() {
         super.configure();
 
         bind(PineaplePosAreaRepo.class).to(PineaplePosAreaRepo_Impl.class).in(Singleton.class);
-        bind(PineaplePosAreaRepoExternal.class).toInstance(areaRepoExternal);
     }
 
 }

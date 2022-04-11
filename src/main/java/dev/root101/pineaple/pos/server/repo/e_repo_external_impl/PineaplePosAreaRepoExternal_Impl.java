@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class PineaplePosAreaRepoExternal_Impl implements PineaplePosAreaRepoExternal {
 
-    private PineaplePosAreaJPARepo repo;
+    private final PineaplePosAreaJPARepo repo;
 
     public PineaplePosAreaRepoExternal_Impl(PineaplePosAreaJPARepo repo) {
         this.repo = repo;

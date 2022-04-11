@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Bean;
 import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
-import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.PineaplePosAreaRepoExternal_Impl;
+import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExternalModule;
 
 /**
  *
@@ -38,7 +38,7 @@ public class PineaplePosRESTModule {
     public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
         PineaplePosCoreModule.init(
                 PineaplePosRepoModule.init(
-                        new PineaplePosAreaRepoExternal_Impl(areaRepoExternal)
+                        PineaplePosRepoExternalModule.init(areaRepoExternal)
                 )
         );
         return "PineaplePosRESTModule";
