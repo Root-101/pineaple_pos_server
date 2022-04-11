@@ -16,11 +16,11 @@
  */
 package dev.root101.pineaple.pos.server.rest.c_rest_impl;
 
+import dev.root101.pineaple.pos.server.rest.b_rest.PineaplePosAreaRESTService;
+import dev.root101.pineaple.pos.server.core.c_usecase.PineaplePosAreaUC;
 import dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule;
 import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
-import dev.root101.pineaple.pos.server.core.c_usecase_def.*;
 import static dev.root101.pineaple.pos.server.rest.PineaplePosRESTConstants.*;
-import dev.root101.pineaple.pos.server.rest.b_rest_def.*;
 import dev.root101.spring.server.CRUDRestServiceTemplate;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +33,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = AREA_GENERAL_PATH)
 @DependsOn({"PineaplePosRESTModule"})
-public class PineaplePosArestRESTService_Impl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePosAreaUC> implements PineaplePosAreaRESTService {
+public class PineaplePosArestRESTServiceImpl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePosAreaUC> implements PineaplePosAreaRESTService {
 
-    public PineaplePosArestRESTService_Impl() {
+    public PineaplePosArestRESTServiceImpl() {
         super(
                 PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class)
         );

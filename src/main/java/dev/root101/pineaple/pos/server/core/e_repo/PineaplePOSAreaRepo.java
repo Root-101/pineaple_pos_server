@@ -14,9 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.rest.b_rest_def;
+package dev.root101.pineaple.pos.server.core.e_repo;
 
-import dev.root101.clean.core.rest.CRUDRestService;
+import dev.root101.clean.core.repo.CRUDRepository;
+
 import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
 
 /**
@@ -24,6 +25,6 @@ import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface PineaplePosAreaRESTService extends CRUDRestService<PineaplePOSAreaDomain> {
+public interface PineaplePosAreaRepo extends CRUDRepository<PineaplePOSAreaDomain> {
 
 }

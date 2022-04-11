@@ -16,8 +16,8 @@
  */
 package dev.root101.pineaple.pos.server.repo.a_module;
 
+import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
 import com.google.inject.*;
-import dev.root101.pineaple.pos.server.core.e_repo_def.*;
 import dev.root101.pineaple.pos.server.repo.c_repo_impl.*;
 
 /**
@@ -31,7 +31,7 @@ public class PineaplePosRepoGuiceInjectorConfig extends AbstractModule {
     protected void configure() {
         super.configure();
 
-        bind(PineaplePosAreaRepo.class).to(PineaplePosAreaRepo_Impl.class).in(Singleton.class);
+        bind(PineaplePosAreaRepo.class).to(PineaplePosAreaRepoImpl.class).in(Singleton.class);
     }
 
 }

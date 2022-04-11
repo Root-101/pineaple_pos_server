@@ -30,7 +30,7 @@ public class PineaplePosRepoExternalGuiceInjectorConfig extends AbstractModule {
     private final PineaplePosAreaRepoExternal areaRepoExternal;
 
     public PineaplePosRepoExternalGuiceInjectorConfig(PineaplePosAreaJPARepo pineaplePosAreaRepoExternal) {
-        this.areaRepoExternal = new PineaplePosAreaRepoExternal_Impl(pineaplePosAreaRepoExternal);
+        this.areaRepoExternal = new PineaplePosAreaRepoExternalImpl(pineaplePosAreaRepoExternal);
     }
 
     @Override

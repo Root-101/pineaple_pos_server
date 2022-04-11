@@ -14,16 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.core.c_usecase_def;
+package dev.root101.pineaple.pos.server.core.d_usecase_impl;
 
-import dev.root101.clean.core.app.usecase.CRUDUseCase;
+import dev.root101.clean.core.app.usecase.DefaultCRUDUseCase;
+import dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule;
 import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
+import dev.root101.pineaple.pos.server.core.c_usecase.PineaplePosAreaUC;
+import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface PineaplePosAreaUC extends CRUDUseCase<PineaplePOSAreaDomain> {
+public class PineaplePosAreaUCImpl extends DefaultCRUDUseCase<PineaplePOSAreaDomain, PineaplePosAreaRepo> implements PineaplePosAreaUC {
+
+    public PineaplePosAreaUCImpl() {
+        super(PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaRepo.class));
+    }
 
 }

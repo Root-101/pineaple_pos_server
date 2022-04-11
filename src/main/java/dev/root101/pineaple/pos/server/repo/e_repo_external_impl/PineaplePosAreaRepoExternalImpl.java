@@ -25,11 +25,11 @@ import java.util.List;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaRepoExternal_Impl implements PineaplePosAreaRepoExternal {
+public class PineaplePosAreaRepoExternalImpl implements PineaplePosAreaRepoExternal {
 
     private final PineaplePosAreaJPARepo repo;
 
-    public PineaplePosAreaRepoExternal_Impl(PineaplePosAreaJPARepo repo) {
+    public PineaplePosAreaRepoExternalImpl(PineaplePosAreaJPARepo repo) {
         this.repo = repo;
     }
 
