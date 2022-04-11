@@ -1,1 +1,10 @@
 rootProject.name = 'pineaple_pos_server'
+
+include ':clean-core'
+project(':clean-core').projectDir = "D:\\Programing\\Java\\Projects\\clean-core" as File
+
+include ':utils-spring'
+project(':utils-spring').projectDir = "D:\\Programing\\Java\\Projects\\utils-spring" as File
+
+include ':utils-core'
+project(':utils-core').projectDir = "D:\\Programing\\Java\\Projects\\utils-core" as File
