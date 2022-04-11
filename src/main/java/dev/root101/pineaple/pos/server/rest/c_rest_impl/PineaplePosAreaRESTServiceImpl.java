@@ -33,9 +33,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = AREA_GENERAL_PATH)
 @DependsOn({"PineaplePosRESTModule"})
-public class PineaplePosArestRESTServiceImpl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePosAreaUC> implements PineaplePosAreaRESTService {
+public class PineaplePosAreaRESTServiceImpl extends CRUDRestServiceTemplate<PineaplePOSAreaDomain, PineaplePosAreaUC> implements PineaplePosAreaRESTService {
 
-    public PineaplePosArestRESTServiceImpl() {
+    public PineaplePosAreaRESTServiceImpl() {
         super(
                 PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class)
         );
