@@ -23,6 +23,8 @@ import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
 import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExternalModule;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -33,6 +35,9 @@ import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExt
 public class PineaplePosRESTModule {
 
     public static final String BASE_PACKAGE = "dev.root101.pineaple.pos.server";
+
+    //@PersistenceContext
+    //private EntityManager entityManager;
 
     @Bean("PineaplePosRESTModule")
     public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
