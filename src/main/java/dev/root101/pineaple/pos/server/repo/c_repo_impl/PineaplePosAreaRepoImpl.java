@@ -29,7 +29,7 @@ import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaRepoImpl extends DefaultCRUDRepo<PineaplePOSAreaDomain, Area, PineaplePosAreaRepoExternal> implements PineaplePosAreaRepo {
+public class PineaplePosAreaRepoImpl extends DefaultCRUDRepo<PineaplePOSAreaDomain, Area, Integer, PineaplePosAreaRepoExternal> implements PineaplePosAreaRepo {
 
     public PineaplePosAreaRepoImpl() {
         super(

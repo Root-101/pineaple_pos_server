@@ -24,6 +24,6 @@ import dev.root101.pineaple.pos.server.repo.b_entity.Area;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface PineaplePosAreaRepoExternal extends CRUDExternalRepository<Area> {
+public interface PineaplePosAreaRepoExternal extends CRUDExternalRepository<Area, Integer> {
 
 }

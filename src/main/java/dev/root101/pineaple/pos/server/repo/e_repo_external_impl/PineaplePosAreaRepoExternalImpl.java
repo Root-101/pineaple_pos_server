@@ -44,20 +44,18 @@ public class PineaplePosAreaRepoExternalImpl implements PineaplePosAreaRepoExter
     }
 
     @Override
-    public Area destroy(Area objectToDestroy) throws RuntimeException {
+    public void destroy(Area objectToDestroy) throws RuntimeException {
         repo.delete(objectToDestroy);
-        return objectToDestroy;
     }
 
     @Override
-    public Area destroyById(Object keyId) throws RuntimeException {
-        repo.deleteById((Integer) keyId);
-        return null;
+    public void destroyById(Integer keyId) throws RuntimeException {
+        repo.deleteById(keyId);
     }
 
     @Override
-    public Area findBy(Object keyId) throws RuntimeException {
-        return repo.findById((Integer) keyId).get();
+    public Area findBy(Integer keyId) throws RuntimeException {
+        return repo.findById(keyId).get();
     }
 
     @Override

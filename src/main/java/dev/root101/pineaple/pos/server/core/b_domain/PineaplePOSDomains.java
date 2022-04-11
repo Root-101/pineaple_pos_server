@@ -33,7 +33,7 @@ public class PineaplePosDomains {
             @Size(max = 99, message = "Nombre muy largo")
             String nameArea,
             @Size(min = 0, max = 499, message = "Descripcion muy larga")
-            String descriptionArea) implements BasicDomainObject {
+            String descriptionArea) implements BasicDomainObject<Integer> {
 
         public static PineaplePOSAreaDomain build(int idPosArea, String namePosArea, String descriptionPosArea) {
             return new PineaplePOSAreaDomain(idPosArea, namePosArea, descriptionPosArea);

@@ -27,7 +27,7 @@ import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaUCImpl extends DefaultCRUDUseCase<PineaplePOSAreaDomain, PineaplePosAreaRepo> implements PineaplePosAreaUC {
+public class PineaplePosAreaUCImpl extends DefaultCRUDUseCase<PineaplePOSAreaDomain, Integer, PineaplePosAreaRepo> implements PineaplePosAreaUC {
 
     public PineaplePosAreaUCImpl() {
         super(PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaRepo.class));
