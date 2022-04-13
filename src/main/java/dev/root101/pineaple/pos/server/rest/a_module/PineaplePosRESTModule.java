@@ -25,7 +25,6 @@ import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
 import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExternalModule;
 //import javax.persistence.EntityManager;
 //import javax.persistence.PersistenceContext;
-
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
@@ -40,9 +39,7 @@ public class PineaplePosRESTModule {
     //private EntityManager entityManager;
     @Bean("PineaplePosRESTModule")
     public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
-        PineaplePosCoreModule.init(
-                PineaplePosRepoModule.init(
-                        PineaplePosRepoExternalModule.init(areaRepoExternal)
+        PineaplePosCoreModule.init(PineaplePosRepoModule.init(PineaplePosRepoExternalModule.init(areaRepoExternal)
                 )
         );
         return "PineaplePosRESTModule";
