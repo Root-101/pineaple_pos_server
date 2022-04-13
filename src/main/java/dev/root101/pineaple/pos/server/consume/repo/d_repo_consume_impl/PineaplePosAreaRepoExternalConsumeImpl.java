@@ -12,8 +12,10 @@ import org.springframework.web.client.RestOperations;
 
 public class PineaplePosAreaRepoExternalConsumeImpl extends ConsumerRepoTemplate<PineaplePosDomains.PineaplePOSAreaDomain, Integer> implements PineaplePosAreaRepoExternalConsume {
 
+    private static final String URL_GENERAL = "http://localhost:8080";
+
     public PineaplePosAreaRepoExternalConsumeImpl(Supplier<RestOperations> template) {
-        super(PineaplePosDomains.PineaplePOSAreaDomain.class, "", template);
+        super(PineaplePosDomains.PineaplePOSAreaDomain.class, URL_GENERAL + "/pineaple/pos-module/area", template);
     }
 
 }
