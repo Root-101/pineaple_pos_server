@@ -14,18 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.rest;
+package dev.root101.pineaple.pos.server.consume.repo.a_module;
+
+import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
+import dev.root101.pineaple.pos.server.consume.repo.b_repo_impl.PosAreaConsumeRepoImpl;
+import dev.root101.pineaple.pos.server.consume.app.e_repo.PosAreaConsumeRepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosRESTConstants {
+public class PosRepoConsumeInjectorConfig extends AbstractModule {
 
-    //-----------------------AREA-----------------------\\
-    public static final String AREA_GENERAL_PATH = "/area";
+    @Override
+    protected void configure() {
+        super.configure();
 
-    //public static final String MONEDA_FIND_BASE_PATH = "/find_base";
-    //public static final RequestMethod MONEDA_FIND_BASE_METHOD = RequestMethod.GET;
+        bind(PosAreaConsumeRepo.class).to(PosAreaConsumeRepoImpl.class).in(Singleton.class);
+    }
+
 }

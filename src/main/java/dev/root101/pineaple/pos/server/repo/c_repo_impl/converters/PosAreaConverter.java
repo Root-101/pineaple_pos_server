@@ -17,7 +17,7 @@
 package dev.root101.pineaple.pos.server.repo.c_repo_impl.converters;
 
 import dev.root101.clean.core.repo.Converter;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains;
+import dev.root101.pineaple.pos.server.core.b_domain.PosDomains;
 import dev.root101.pineaple.pos.server.repo.b_entity.Area;
 
 /**
@@ -25,20 +25,20 @@ import dev.root101.pineaple.pos.server.repo.b_entity.Area;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaConverter implements Converter<PineaplePosDomains.PineaplePOSAreaDomain, Area> {
+public class PosAreaConverter implements Converter<PosDomains.PineaplePOSAreaDomain, Area> {
 
-    private static PineaplePosAreaConverter INSTANCE;
+    private static PosAreaConverter INSTANCE;
 
-    public static PineaplePosAreaConverter getInstance() {
+    public static PosAreaConverter getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new PineaplePosAreaConverter();
+            INSTANCE = new PosAreaConverter();
         }
         return INSTANCE;
     }
 
     @Override
-    public PineaplePosDomains.PineaplePOSAreaDomain toDomain(Area entity) throws RuntimeException {
-        return PineaplePosDomains.PineaplePOSAreaDomain.build(
+    public PosDomains.PineaplePOSAreaDomain toDomain(Area entity) throws RuntimeException {
+        return PosDomains.PineaplePOSAreaDomain.build(
                 entity.getIdArea(),
                 entity.getNameArea(),
                 entity.getDecriptionArea()
@@ -46,7 +46,7 @@ public class PineaplePosAreaConverter implements Converter<PineaplePosDomains.Pi
     }
 
     @Override
-    public Area toEntity(PineaplePosDomains.PineaplePOSAreaDomain domain) throws RuntimeException {
+    public Area toEntity(PosDomains.PineaplePOSAreaDomain domain) throws RuntimeException {
         return new Area(
                 domain.idArea(),
                 domain.nameArea(),

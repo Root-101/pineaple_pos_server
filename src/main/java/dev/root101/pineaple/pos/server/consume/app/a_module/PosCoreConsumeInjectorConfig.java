@@ -14,30 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.a_module.external;
+package dev.root101.pineaple.pos.server.consume.app.a_module;
 
-import com.google.inject.*;
-import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
-import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.*;
+import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
+import dev.root101.pineaple.pos.server.consume.app.d_use_case_impl.PosAreaConsumeUCImpl;
+import dev.root101.pineaple.pos.server.consume.app.c_use_case.PosAreaConsumeUC;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosRepoExternalGuiceInjectorConfig extends AbstractModule {
-
-    private final PineaplePosAreaRepoExternal areaRepoExternal;
-
-    public PineaplePosRepoExternalGuiceInjectorConfig(PineaplePosAreaJPARepo pineaplePosAreaRepoExternal) {
-        this.areaRepoExternal = new PineaplePosAreaRepoExternalImpl(pineaplePosAreaRepoExternal);
-    }
+public class PosCoreConsumeInjectorConfig extends AbstractModule {
 
     @Override
     protected void configure() {
         super.configure();
 
-        bind(PineaplePosAreaRepoExternal.class).toInstance(areaRepoExternal);
+        bind(PosAreaConsumeUC.class).to(PosAreaConsumeUCImpl.class).in(Singleton.class);
     }
 
 }

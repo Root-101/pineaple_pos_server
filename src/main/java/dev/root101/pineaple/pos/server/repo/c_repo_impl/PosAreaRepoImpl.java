@@ -14,23 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.core.d_usecase_impl;
+package dev.root101.pineaple.pos.server.repo.c_repo_impl;
 
-import dev.root101.clean.core.app.usecase.DefaultCRUDUseCase;
-import dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
-import dev.root101.pineaple.pos.server.core.c_usecase.PineaplePosAreaUC;
-import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
+import dev.root101.clean.core.repo.DefaultCRUDRepo;
+import dev.root101.pineaple.pos.server.core.b_domain.PosDomains.*;
+import dev.root101.pineaple.pos.server.repo.a_module.PosRepoModule;
+import dev.root101.pineaple.pos.server.repo.b_entity.*;
+import dev.root101.pineaple.pos.server.repo.c_repo_impl.converters.PosAreaConverter;
+import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
+import dev.root101.pineaple.pos.server.core.e_repo.PosAreaRepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaUCImpl extends DefaultCRUDUseCase<PineaplePOSAreaDomain, Integer, PineaplePosAreaRepo> implements PineaplePosAreaUC {
+public class PosAreaRepoImpl extends DefaultCRUDRepo<PineaplePOSAreaDomain, Area, Integer, PosAreaRepoExternal> implements PosAreaRepo {
 
-    public PineaplePosAreaUCImpl() {
-        super(PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaRepo.class));
+    public PosAreaRepoImpl() {
+        super(PosRepoModule.find(PosAreaRepoExternal.class),
+                PosAreaConverter.getInstance()
+        );
     }
 
 }

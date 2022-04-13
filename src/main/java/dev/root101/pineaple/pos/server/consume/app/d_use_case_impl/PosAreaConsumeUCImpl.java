@@ -14,21 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.e_repo_external_impl;
+package dev.root101.pineaple.pos.server.consume.app.d_use_case_impl;
 
-import dev.root101.pineaple.pos.server.repo.b_entity.Area;
-import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
-import dev.root101.spring.repo.DefaultJPARepository;
+import dev.root101.clean.core.app.usecase.DefaultCRUDUseCase;
+import dev.root101.pineaple.pos.server.consume.app.b_domain.PosConsumeDomains;
+import dev.root101.pineaple.pos.server.consume.app.a_module.PosCoreConsumeModule;
+import dev.root101.pineaple.pos.server.consume.app.c_use_case.PosAreaConsumeUC;
+import dev.root101.pineaple.pos.server.consume.app.e_repo.PosAreaConsumeRepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaRepoExternalImpl extends DefaultJPARepository<Area, Integer> implements PineaplePosAreaRepoExternal {
+public class PosAreaConsumeUCImpl extends DefaultCRUDUseCase<PosConsumeDomains.PineaplePOSAreaDomain, Integer, PosAreaConsumeRepo> implements PosAreaConsumeUC {
 
-    public PineaplePosAreaRepoExternalImpl(PineaplePosAreaJPARepo repo) {
-        super(repo);
+    public PosAreaConsumeUCImpl() {
+        super(PosCoreConsumeModule.find(PosAreaConsumeRepo.class));
     }
 
 }

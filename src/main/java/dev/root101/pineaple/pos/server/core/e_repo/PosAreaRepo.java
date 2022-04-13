@@ -14,25 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.core.a_module;
+package dev.root101.pineaple.pos.server.core.e_repo;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Singleton;
-import dev.root101.pineaple.pos.server.core.d_usecase_impl.*;
-import dev.root101.pineaple.pos.server.core.c_usecase.PineaplePosAreaUC;
+import dev.root101.clean.core.repo.CRUDRepository;
+import dev.root101.pineaple.pos.server.core.b_domain.PosDomains;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosCoreGuiceInjectorConfig extends AbstractModule {
-
-    @Override
-    protected void configure() {
-        super.configure();
-
-        bind(PineaplePosAreaUC.class).to(PineaplePosAreaUCImpl.class).in(Singleton.class);
-    }
+public interface PosAreaRepo extends CRUDRepository<PosDomains.PineaplePOSAreaDomain, Integer> {
 
 }

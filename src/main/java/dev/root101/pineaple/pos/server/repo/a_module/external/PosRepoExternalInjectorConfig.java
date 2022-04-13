@@ -14,24 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.a_module;
+package dev.root101.pineaple.pos.server.repo.a_module.external;
 
-import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
 import com.google.inject.*;
-import dev.root101.pineaple.pos.server.repo.c_repo_impl.*;
+import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
+import dev.root101.pineaple.pos.server.repo.e_repo_external_impl.*;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosRepoGuiceInjectorConfig extends AbstractModule {
+public class PosRepoExternalInjectorConfig extends AbstractModule {
+
+    private final PosAreaRepoExternal areaRepoExternal;
+
+    public PosRepoExternalInjectorConfig(PosAreaJPARepo pineaplePosAreaRepoExternal) {
+        this.areaRepoExternal = new PosAreaRepoExternalImpl(pineaplePosAreaRepoExternal);
+    }
 
     @Override
     protected void configure() {
         super.configure();
 
-        bind(PineaplePosAreaRepo.class).to(PineaplePosAreaRepoImpl.class).in(Singleton.class);
+        bind(PosAreaRepoExternal.class).toInstance(areaRepoExternal);
     }
 
 }

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.core.b_domain;
+package dev.root101.pineaple.pos.server.consume.app.b_domain;
 
 import dev.root101.clean.core.app.domain.BasicDomainObject;
 import javax.validation.constraints.NotEmpty;
@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosDomains {
+public class PosConsumeDomains {
 
     public record PineaplePOSAreaDomain(
             Integer idArea,

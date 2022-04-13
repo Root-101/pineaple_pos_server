@@ -17,13 +17,13 @@
 package dev.root101.pineaple.pos.server.core.c_usecase;
 
 import dev.root101.clean.core.app.usecase.CRUDUseCase;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
+import dev.root101.pineaple.pos.server.core.b_domain.PosDomains.*;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface PineaplePosAreaUC extends CRUDUseCase<PineaplePOSAreaDomain, Integer> {
+public interface PosAreaUC extends CRUDUseCase<PineaplePOSAreaDomain, Integer> {
 
 }

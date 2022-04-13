@@ -14,16 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.d_repo_external;
+package dev.root101.pineaple.pos.server.consume.repo.d_repo_consume_impl;
 
-import dev.root101.clean.core.repo.external_repo.CRUDExternalRepository;
-import dev.root101.pineaple.pos.server.repo.b_entity.Area;
+import dev.root101.pineaple.pos.server.core.b_domain.PosDomains;
+import dev.root101.spring.client.ConsumerRepoTemplate;
+import java.util.function.Supplier;
+import org.springframework.web.client.RestOperations;
+import dev.root101.pineaple.pos.server.consume.repo.c_repo_consume.PosAreaConsumeRepoExternal;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface PineaplePosAreaRepoExternal extends CRUDExternalRepository<Area, Integer> {
+public class PosAreaConsumeRepoExternalImpl extends ConsumerRepoTemplate<PosDomains.PineaplePOSAreaDomain, Integer> implements PosAreaConsumeRepoExternal {
+
+    private static final String URL_GENERAL = "http://localhost:8080";
+
+    public PosAreaConsumeRepoExternalImpl(Supplier<RestOperations> template) {
+        super(PosDomains.PineaplePOSAreaDomain.class, URL_GENERAL + "/pineaple/pos-module/area", template);
+    }
 
 }

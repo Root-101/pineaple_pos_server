@@ -9,7 +9,7 @@ group = 'dev.root101.pineaple'
 
 //mainClassName = 'dev.root101.pineaple.pos.server.Main'
 
-version = '0.0.3.SNAPSHOT.20220410'
+version = '0.0.4.SNAPSHOT.20220413'
 
 repositories {
     jcenter()

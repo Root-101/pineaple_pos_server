@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.a_module;
+package dev.root101.pineaple.pos.server.consume.repo.a_module;
 
 import com.google.inject.*;
 import dev.root101.clean.core.app.modules.DefaultAbstractModule;
@@ -25,26 +25,30 @@ import dev.root101.clean.core.exceptions.*;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosRepoModule extends DefaultAbstractModule {
+public class PosConsumeRepoModule extends DefaultAbstractModule {
 
-    private static final Injector inj = Guice.createInjector(new PineaplePosRepoGuiceInjectorConfig());
+    private static final Injector inj = Guice.createInjector(new PosRepoConsumeInjectorConfig());
 
-    private static PineaplePosRepoModule INSTANCE;
+    private static PosConsumeRepoModule INSTANCE;
 
-    public static PineaplePosRepoModule getInstance() {
+    public static PosConsumeRepoModule getInstance() {
         if (INSTANCE == null) {
             throw new NotInitModule("Modulo sin iniciar");
         }
         return INSTANCE;
     }
 
-    public static PineaplePosRepoModule init(dev.root101.clean.core.app.modules.AbstractModule repoExternalModule) {
+    public static PosConsumeRepoModule init(dev.root101.clean.core.app.modules.AbstractModule repoModule) {
         if (INSTANCE != null) {
             throw new AlreadyInitModule("Module ya inicializado");
         }
-        INSTANCE = new PineaplePosRepoModule();
-        INSTANCE.registerModule(repoExternalModule);
+        INSTANCE = new PosConsumeRepoModule();
+        INSTANCE.registerModule(repoModule);
         return getInstance();
+    }
+
+    public static <T> T find(Class<T> type) {
+        return getInstance().getImplementation(type);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class PineaplePosRepoModule extends DefaultAbstractModule {
 
     @Override
     public String getModuleName() {
-        return "Pineaple POS Repo Module";
+        return "Pineaple POS Core Consume Module";
     }
 
 }

@@ -14,42 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.a_module.external;
+package dev.root101.pineaple.pos.server.repo.a_module;
 
 import com.google.inject.*;
 import dev.root101.clean.core.app.modules.DefaultAbstractModule;
 import dev.root101.clean.core.exceptions.*;
-import dev.root101.pineaple.pos.server.repo.d_repo_external.PineaplePosAreaJPARepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosRepoExternalModule extends DefaultAbstractModule {
+public class PosRepoModule extends DefaultAbstractModule {
 
-    private static Injector inj;
+    private static final Injector inj = Guice.createInjector(new PosRepoInjectorConfig());
 
-    private static PineaplePosRepoExternalModule INSTANCE;
+    private static PosRepoModule INSTANCE;
 
-    public static PineaplePosRepoExternalModule getInstance() {
+    public static PosRepoModule getInstance() {
         if (INSTANCE == null) {
             throw new NotInitModule("Modulo sin iniciar");
         }
         return INSTANCE;
     }
 
-    public static PineaplePosRepoExternalModule init(PineaplePosAreaJPARepo areaRepoExternal) {
+    public static PosRepoModule init(dev.root101.clean.core.app.modules.AbstractModule repoExternalModule) {
         if (INSTANCE != null) {
             throw new AlreadyInitModule("Module ya inicializado");
         }
-        inj = Guice.createInjector(
-                new PineaplePosRepoExternalGuiceInjectorConfig(
-                        areaRepoExternal
-                )
-        );
-        INSTANCE = new PineaplePosRepoExternalModule();
+        INSTANCE = new PosRepoModule();
+        INSTANCE.registerModule(repoExternalModule);
         return getInstance();
+    }
+
+    public static <T> T find(Class<T> type) {
+        return getInstance().getImplementation(type);
     }
 
     @Override
@@ -59,7 +58,7 @@ public class PineaplePosRepoExternalModule extends DefaultAbstractModule {
 
     @Override
     public String getModuleName() {
-        return "Pineaple POS Repo External Module";
+        return "Pineaple POS Repo Module";
     }
 
 }

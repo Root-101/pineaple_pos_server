@@ -20,29 +20,26 @@ import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Bean;
 import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule;
-import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
-import dev.root101.pineaple.pos.server.repo.a_module.external.PineaplePosRepoExternalModule;
+import dev.root101.pineaple.pos.server.core.a_module.PosCoreModule;
+import dev.root101.pineaple.pos.server.repo.a_module.PosRepoModule;
+import dev.root101.pineaple.pos.server.repo.a_module.external.PosRepoExternalModule;
 //import javax.persistence.EntityManager;
 //import javax.persistence.PersistenceContext;
-
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
 @Component
-public class PineaplePosRESTModule {
+public class PosRESTModule {
 
     public static final String BASE_PACKAGE = "dev.root101.pineaple.pos.server";
 
     //@PersistenceContext
     //private EntityManager entityManager;
     @Bean("PineaplePosRESTModule")
-    public String init(@Autowired PineaplePosAreaJPARepo areaRepoExternal) {
-        PineaplePosCoreModule.init(
-                PineaplePosRepoModule.init(
-                        PineaplePosRepoExternalModule.init(areaRepoExternal)
+    public String init(@Autowired PosAreaJPARepo areaRepoExternal) {
+        PosCoreModule.init(PosRepoModule.init(PosRepoExternalModule.init(areaRepoExternal)
                 )
         );
         return "PineaplePosRESTModule";

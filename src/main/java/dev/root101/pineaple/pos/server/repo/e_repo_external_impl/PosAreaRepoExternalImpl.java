@@ -14,28 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.repo.c_repo_impl;
+package dev.root101.pineaple.pos.server.repo.e_repo_external_impl;
 
-import dev.root101.clean.core.repo.DefaultCRUDRepo;
-import dev.root101.pineaple.pos.server.core.b_domain.PineaplePosDomains.*;
-import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
-import dev.root101.pineaple.pos.server.repo.a_module.PineaplePosRepoModule;
-import dev.root101.pineaple.pos.server.repo.b_entity.*;
-import dev.root101.pineaple.pos.server.repo.c_repo_impl.converters.PineaplePosAreaConverter;
+import dev.root101.pineaple.pos.server.repo.b_entity.Area;
 import dev.root101.pineaple.pos.server.repo.d_repo_external.*;
+import dev.root101.spring.repo.DefaultJPARepository;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class PineaplePosAreaRepoImpl extends DefaultCRUDRepo<PineaplePOSAreaDomain, Area, Integer, PineaplePosAreaRepoExternal> implements PineaplePosAreaRepo {
+public class PosAreaRepoExternalImpl extends DefaultJPARepository<Area, Integer> implements PosAreaRepoExternal {
 
-    public PineaplePosAreaRepoImpl() {
-        super(
-                PineaplePosRepoModule.getInstance().getImplementation(PineaplePosAreaRepoExternal.class),
-                PineaplePosAreaConverter.getInstance()
-        );
+    public PosAreaRepoExternalImpl(PosAreaJPARepo repo) {
+        super(repo);
     }
 
 }
