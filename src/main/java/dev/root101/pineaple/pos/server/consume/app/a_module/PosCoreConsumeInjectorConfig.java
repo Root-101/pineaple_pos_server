@@ -14,12 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.consume;
+package dev.root101.pineaple.pos.server.consume.app.a_module;
 
-import dev.root101.pineaple.pos.server.consume.app.a_module.PosCoreConsumeModule;
-import dev.root101.pineaple.pos.server.consume.repo.a_module.PosConsumeRepoModule;
-import dev.root101.pineaple.pos.server.consume.repo.a_module.external.PosRepoExternalConsumeModule;
-import org.springframework.web.client.RestTemplate;
+import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
+import dev.root101.pineaple.pos.server.consume.app.d_use_case_impl.PosAreaConsumeUCImpl;
 import dev.root101.pineaple.pos.server.consume.app.c_use_case.PosAreaConsumeUC;
 
 /**
@@ -27,18 +26,13 @@ import dev.root101.pineaple.pos.server.consume.app.c_use_case.PosAreaConsumeUC;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class TestConsumeMain {
+public class PosCoreConsumeInjectorConfig extends AbstractModule {
 
-    public static void main(String[] args) {
-        RestTemplate rt = new RestTemplate();
-        PosCoreConsumeModule.init(PosConsumeRepoModule.init(PosRepoExternalConsumeModule.init(() -> {
-                            return rt;
-                        })
-                ));
+    @Override
+    protected void configure() {
+        super.configure();
 
-        PosAreaConsumeUC uc = PosCoreConsumeModule.find(PosAreaConsumeUC.class);
-        
-        System.out.println(uc.findAll());
+        bind(PosAreaConsumeUC.class).to(PosAreaConsumeUCImpl.class).in(Singleton.class);
     }
 
 }

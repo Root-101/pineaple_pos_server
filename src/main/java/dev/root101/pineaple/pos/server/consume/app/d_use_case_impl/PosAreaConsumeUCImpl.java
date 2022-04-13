@@ -14,31 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.root101.pineaple.pos.server.consume;
+package dev.root101.pineaple.pos.server.consume.app.d_use_case_impl;
 
+import dev.root101.clean.core.app.usecase.DefaultCRUDUseCase;
+import dev.root101.pineaple.pos.server.consume.app.b_domain.PosConsumeDomains;
 import dev.root101.pineaple.pos.server.consume.app.a_module.PosCoreConsumeModule;
-import dev.root101.pineaple.pos.server.consume.repo.a_module.PosConsumeRepoModule;
-import dev.root101.pineaple.pos.server.consume.repo.a_module.external.PosRepoExternalConsumeModule;
-import org.springframework.web.client.RestTemplate;
 import dev.root101.pineaple.pos.server.consume.app.c_use_case.PosAreaConsumeUC;
+import dev.root101.pineaple.pos.server.consume.app.e_repo.PosAreaConsumeRepo;
 
 /**
  *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class TestConsumeMain {
+public class PosAreaConsumeUCImpl extends DefaultCRUDUseCase<PosConsumeDomains.PineaplePOSAreaDomain, Integer, PosAreaConsumeRepo> implements PosAreaConsumeUC {
 
-    public static void main(String[] args) {
-        RestTemplate rt = new RestTemplate();
-        PosCoreConsumeModule.init(PosConsumeRepoModule.init(PosRepoExternalConsumeModule.init(() -> {
-                            return rt;
-                        })
-                ));
-
-        PosAreaConsumeUC uc = PosCoreConsumeModule.find(PosAreaConsumeUC.class);
-        
-        System.out.println(uc.findAll());
+    public PosAreaConsumeUCImpl() {
+        super(PosCoreConsumeModule.find(PosAreaConsumeRepo.class));
     }
 
 }
