@@ -19,6 +19,7 @@ package dev.root101.pineaple.pos.server.repo.a_module;
 import com.google.inject.*;
 import dev.root101.clean.core.app.modules.DefaultAbstractModule;
 import dev.root101.clean.core.exceptions.*;
+import static dev.root101.pineaple.pos.server.core.a_module.PineaplePosCoreModule.getInstance;
 
 /**
  *
@@ -45,6 +46,10 @@ public class PineaplePosRepoModule extends DefaultAbstractModule {
         INSTANCE = new PineaplePosRepoModule();
         INSTANCE.registerModule(repoExternalModule);
         return getInstance();
+    }
+
+    public static <T> T find(Class<T> type) {
+        return getInstance().getImplementation(type);
     }
 
     @Override

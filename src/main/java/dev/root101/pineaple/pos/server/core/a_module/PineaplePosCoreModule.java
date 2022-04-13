@@ -47,6 +47,10 @@ public class PineaplePosCoreModule extends DefaultAbstractModule {
         return getInstance();
     }
 
+    public static <T> T find(Class<T> type) {
+        return getInstance().getImplementation(type);
+    }
+
     @Override
     protected <T> T getOwnImplementation(Class<T> type) {
         return inj.getInstance(type);

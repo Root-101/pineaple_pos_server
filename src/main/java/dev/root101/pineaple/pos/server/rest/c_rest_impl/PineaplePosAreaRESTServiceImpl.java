@@ -37,7 +37,7 @@ public class PineaplePosAreaRESTServiceImpl extends CRUDRestServiceTemplate<Pine
 
     public PineaplePosAreaRESTServiceImpl() {
         super(
-                PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaUC.class)
+                PineaplePosCoreModule.find(PineaplePosAreaUC.class)
         );
     }
 

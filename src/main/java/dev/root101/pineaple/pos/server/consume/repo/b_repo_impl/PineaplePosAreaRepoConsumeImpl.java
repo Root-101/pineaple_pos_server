@@ -19,7 +19,7 @@ public class PineaplePosAreaRepoConsumeImpl
 
     public PineaplePosAreaRepoConsumeImpl() {
         super(
-                PineaplePosRepoModuleConsume.getInstance().getImplementation(PineaplePosAreaRepoExternalConsume.class),
+                PineaplePosRepoModuleConsume.find(PineaplePosAreaRepoExternalConsume.class),
                 PineaplePosAreaConverterConsume.getInstance()
         );
     }

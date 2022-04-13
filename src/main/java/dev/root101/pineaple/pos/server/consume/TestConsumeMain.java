@@ -38,7 +38,7 @@ public class TestConsumeMain {
                         })
                 ));
 
-        PineaplePosAreaUCConsume uc = PineaplePosCoreModuleConsume.getInstance().getImplementation(PineaplePosAreaUCConsume.class);
+        PineaplePosAreaUCConsume uc = PineaplePosCoreModuleConsume.find(PineaplePosAreaUCConsume.class);
         
         System.out.println(uc.findAll());
     }

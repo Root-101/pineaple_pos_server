@@ -30,7 +30,7 @@ import dev.root101.pineaple.pos.server.core.e_repo.PineaplePosAreaRepo;
 public class PineaplePosAreaUCImpl extends DefaultCRUDUseCase<PineaplePOSAreaDomain, Integer, PineaplePosAreaRepo> implements PineaplePosAreaUC {
 
     public PineaplePosAreaUCImpl() {
-        super(PineaplePosCoreModule.getInstance().getImplementation(PineaplePosAreaRepo.class));
+        super(PineaplePosCoreModule.find(PineaplePosAreaRepo.class));
     }
 
 }

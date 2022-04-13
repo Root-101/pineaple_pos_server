@@ -33,7 +33,7 @@ public class PineaplePosAreaRepoImpl extends DefaultCRUDRepo<PineaplePOSAreaDoma
 
     public PineaplePosAreaRepoImpl() {
         super(
-                PineaplePosRepoModule.getInstance().getImplementation(PineaplePosAreaRepoExternal.class),
+                PineaplePosRepoModule.find(PineaplePosAreaRepoExternal.class),
                 PineaplePosAreaConverter.getInstance()
         );
     }

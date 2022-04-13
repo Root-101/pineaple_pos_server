@@ -30,7 +30,7 @@ import dev.root101.pineaple.pos.server.consume.app.e_repo.PineaplePosAreaRepoCon
 public class PineaplePosAreaUCConsumeImpl extends DefaultCRUDUseCase<PineaplePosDomainsConsume.PineaplePOSAreaDomain, Integer, PineaplePosAreaRepoConsume> implements PineaplePosAreaUCConsume {
 
     public PineaplePosAreaUCConsumeImpl() {
-        super(PineaplePosCoreModuleConsume.getInstance().getImplementation(PineaplePosAreaRepoConsume.class));
+        super(PineaplePosCoreModuleConsume.find(PineaplePosAreaRepoConsume.class));
     }
 
 }
